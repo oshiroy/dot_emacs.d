@@ -1,0 +1,19 @@
+
+irony/
+undohist/
+abbrev_defs
+
+
+# installed packages
+auto-install/
+auto-save-list/
+elpa
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# font files and dat files
+*.otf
+*.dat
