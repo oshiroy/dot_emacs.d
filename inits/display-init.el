@@ -1,4 +1,6 @@
+;;
 ;;emacs setting of display
+;;
 
 ;;menu bar
 (when window-system (menu-bar-mode nil))
@@ -30,7 +32,6 @@
 (global-set-key "\C-xj" 'goto-line)
 ;;back space
 (global-set-key "\C-h" 'delete-backward-char)
-
 ;;display time
 (setq display-time-string-forms
       '(24-hours ":" minutes))
@@ -43,14 +44,6 @@
 	    (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
 	    (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
 	    (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(anzu-deactivate-region t)
- '(anzu-mode-lighter "")
- '(anzu-search-threshold 1000)
- '(custom-safe-themes (quote ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
+
 
 (provide 'display-init)

@@ -3,6 +3,17 @@
 ;;helm
 (when (require 'helm nil t)
   (helm-mode 0 )
+  ;;(define-key global-map (kbd "C-x C-f") 'helm-find-files)
+  (define-key global-map (kbd "C-c r") 'helm-recentf)
+  (define-key global-map (kbd "C-c C-k") 'helm-show-kill-ring)
+  (define-key global-map (kbd "C-c i")   'helm-imenu)
+   (define-key global-map (kbd "C-x b")   'helm-buffers-list)
+
+   (setq helm-buffer-details-flag nil) 
+  ;; For find-file etc.
+  (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
+  ;; For helm-find-files etc.
+  (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
   (when (require 'bind-key nil t)
     (bind-key "C-h" nil helm-map)
     )
@@ -58,6 +69,15 @@
 ;;   (global-set-key (kbd "M-g .") 'helm-ag)
 ;;   (global-set-key (kbd "M-g ,") 'helm-ag-pop-stack)
 ;;   (global-set-key (kbd "C-M-s") 'helm-ag-this-file))
-;;
+
+;;helm theme setting
+(add-hook 'font-lock-mode-hook
+	  '(lambda () 
+	     (set-face-background 'helm-source-header "cyan")
+	     (set-face-foreground 'helm-selection "black")
+	     (set-face-bold-p 'helm-selection-line t)
+	     (set-face-foreground 'helm-selection-line "black")
+	     ))
+
 
 (provide 'helm-init)

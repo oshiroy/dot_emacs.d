@@ -69,6 +69,7 @@
 (when (require 'expand-region nil t)
   (global-set-key (kbd "C-@") 'er/expand-region)
   (global-set-key (kbd "C-M-@") 'er/contract-region)
+  (global-set-key (kbd "C-Shift-@" 'set-mark-command)
   )
 ;;migemo
 (when (require 'migemo nil t)
@@ -94,8 +95,8 @@
    '(anzu-deactivate-region t)
    '(anzu-search-threshold 1000)))
 ;;
-(when (require 'drill-instructor nil t)
-  (setq drill-instructor-global nil)
+;; (when (require 'drill-instructor nil t)
+;;   (setq drill-instructor-global nil)
   ;; (mapc (lambda (name)
   ;;         (fset name 'kill-emacs))
   ;;       '(drill-instructor-alert-up
@@ -105,7 +106,7 @@
   ;;         drill-instructor-alert-del
   ;;         drill-instructor-alert-return
   ;;         drill-instructor-alert-tab))
-  )
+;;  )
 
 ;;hilnum (not work)
 ;; (when (require 'hlinum nil t)
@@ -138,7 +139,22 @@
 
 ;;powerline
 ;; (when (require 'powerline nil t)
-;;   (powerline-default-theme))
+;;   (set-face-attribute 'mode-line nil
+;; 		      :foreground "#000"
+;; 		      :background "#99FF33"
+;; 		      :box nil)
+  
+;;   (set-face-attribute 'powerline-active1 nil
+;; 		      :foreground "#fff"
+;; 		      :background "#222222"
+;; 		      :inherit 'mode-line)
+  
+;;   (set-face-attribute 'powerline-active2 nil
+;; 		      :foreground "#fff"
+;; 		      :background "#555555"
+;; 		      :inherit 'mode-line)
+;;   (powerline-default-theme)
+;;   )
 
 ;;undo-tree
 (when (require 'undo-tree nil t)
