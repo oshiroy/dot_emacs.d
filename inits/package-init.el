@@ -69,7 +69,7 @@
 (when (require 'expand-region nil t)
   (global-set-key (kbd "C-@") 'er/expand-region)
   (global-set-key (kbd "C-M-@") 'er/contract-region)
-  (global-set-key (kbd "C-Shift-@" 'set-mark-command)
+  (global-set-key (kbd "M-@") 'set-mark-command)
   )
 ;;migemo
 (when (require 'migemo nil t)
