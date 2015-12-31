@@ -11,6 +11,17 @@
 (set-buffer-file-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;;solarized theme
+(add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/repos/emacs-color-theme-solarized"))
+(setq solarized-termcolors 256)
+(customize-set-variable 'frame-background-mode 'dark)
+(set-frame-parameter nil 'background-mode 'dark)
+(set-terminal-parameter nil 'background-mode 'dark)
+(load-theme 'solarized t)
+(enable-theme 'solarized)
+
+(linum-mode t)
+
 (add-to-list 'load-path (format "%s/.emacs.d" (getenv "HOME")))
 (require 'cl)
 ;;
@@ -76,8 +87,9 @@
       (package-install pkg))))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/inits/"))
 
- (require 'package-init)
- (require 'helm-init)
- (require 'c-mode-init)
- (require 'display-init)
- (require 'theme-init)
+(require 'package-init)
+(require 'helm-init)
+(require 'c-mode-init)
+(require 'display-init)
+;;(require 'theme-init)
+(require 'org-mode-init)
