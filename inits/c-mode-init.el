@@ -22,4 +22,7 @@
 ;;   (setq c-eldoc-buffer-regenerate-time 150)
 ;;   )
 
+(require 'cuda-mode nil t)
+
 (provide 'c-mode-init)
+

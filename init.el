@@ -46,6 +46,7 @@
     aurora-theme
     bind-key
     c-eldoc
+    cuda-mode
     ess
     eldoc-extension
     expand-region
