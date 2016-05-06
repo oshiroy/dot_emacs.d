@@ -43,13 +43,14 @@
 ;; 				 'irony-completion-at-point-async)))
 ;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)  
 ;;   )
+
 ;;stack
-(when (and (require 'eldoc nil t) (require 'eldoc-extension nil t))
-  (setq eldoc-idle-delay 0)
-  (setq eldoc-echo-area-use-multiline-p t)
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode))
+;; (when (and (require 'eldoc nil t) (require 'eldoc-extension nil t))
+;;   (setq eldoc-idle-delay 0)
+;;   (setq eldoc-echo-area-use-multiline-p t)
+;;   (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+;;   (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+;;   (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode))
 
 ;;
 ;;python-mode setting
@@ -171,10 +172,14 @@
 (when (require 'redo+ nil t)
   (global-set-key (kbd "C-\\") 'redo))
 
-;;ros emacs
-(when (require 'rosemacs nil t)
+;;rosemacs
+(when (and (string= "hydro" (getenv "ROS_DISTRO"))
+	   (require 'rosemacs nil t))
   (invoke-rosemacs)
   (global-set-key "\C-x\C-r" ros-keymap))
+(when (string= "indigo" (getenv "ROS_DISTRO"))
+  (add-to-list 'load-path "/opt/ros/indigo/share/emacs/site-lisp")
+  (require 'rosemacs-config))
 
 ;;rainbow-delimiters-mode
 (defun rainbow-delimiters-mode-turn-on () 
