@@ -77,6 +77,7 @@
     epc
     which-key
     zlc
+    smooth-scroll
     ))
 ;;install package automatically if not installed
 (let ((not-installed (loop for x in installing-package-list
