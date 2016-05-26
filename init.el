@@ -49,6 +49,7 @@
     cuda-mode
     ess
     eldoc-extension
+    elscreen
     expand-region
     fringe-helper
     gtags
