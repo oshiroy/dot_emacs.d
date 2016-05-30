@@ -1,5 +1,5 @@
 ;;
-;;emacs common setting 
+;;emacs common setting
 ;;
 
 ;; backup files go into .~ directory now
@@ -9,7 +9,8 @@
 ;;back space
 (global-set-key "\C-h" 'delete-backward-char)
 ;;iswitchbモードON
-(iswitchb-mode 1) 
+(iswitchb-mode 1)
+
 ;;C-f, C-b, C-n, C-p で候補を切り替えることができるように。
 (add-hook 'iswitchb-define-mode-map-hook
 	  (lambda ()
@@ -22,5 +23,16 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 20)
 (setq recentf-max-saved-items 200)
+
+;; eofにnewlineの行追加を禁止
+(setq next-line-add-newlines nil)
+
+;; 1行scrool
+(setq scroll-conservatively 35
+  scroll-margin 0
+  scroll-step 1)
+
+;; tab->space
+(setq-default indent-tabs-mode nil)
 
 (provide 'common-init)

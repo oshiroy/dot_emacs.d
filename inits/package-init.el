@@ -148,9 +148,15 @@
 ;;   (hlinum-activate)
 ;;   )
 
+;;git-gutter
+;; (when (require 'git-gutter nil t)
+;;   (global-git-gutter-mode t)
+;;   )
+
 ;;git-gutter-fringe
 (when (and (require 'git-gutter nil t)(require 'git-gutter-fringe nil t))
   (global-git-gutter-mode t)
+  ;; (setq git-gutter-fr:side 'right-fringe)
   )
 
 ;;bash-completion
@@ -166,11 +172,12 @@
                                 auto-mode-alist)))
 
 ;;flycheck
-;; (when (require 'flycheck nil t)
-;;   (add-hook 'python-mode-hook 'flycheck-mode)
-;;   (add-hook 'c-mode-hook 'flycheck-mode)
-;;   )
-;;
+(when (require 'flycheck nil t)
+  (add-hook 'python-mode-hook 'flycheck-mode)
+  (add-hook 'c-mode-hook 'flycheck-mode)
+  (add-hook 'c++-mode-hook 'flycheck-mode)
+  )
+
 
 ;;powerline
 ;; (when (require 'powerline nil t)

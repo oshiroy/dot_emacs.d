@@ -66,6 +66,7 @@
     redo+
     rainbow-delimiters
     shell-pop
+    sudden-death
     sr-speedbar
     undo-tree
     undohist
@@ -90,6 +91,8 @@
       (package-install pkg))))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/inits/"))
 
+
+(require 'common-init)
 (require 'package-init)
 (require 'helm-init)
 (require 'c-mode-init)

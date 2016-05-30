@@ -3,16 +3,16 @@
 ;;
 
 ;;menu bar
-(when window-system (menu-bar-mode nil))
+(when (not window-system) (menu-bar-mode -1))
 ;;tool bar
-(when window-system (tool-bar-mode nil))
+(when window-system (tool-bar-mode -1))
 ;;scroll bar
 (when window-system (set-scroll-bar-mode nil))
 ;; キーワードのカラー表示を有効化
 (global-font-lock-mode t)
 ;; 行番号・桁番号をモードラインに表示する
 (line-number-mode t) 
-(column-number-mode nil) 
+(column-number-mode t) 
 ;;行数表示
 (global-linum-mode t)
 ;; 対応する括弧を強調
