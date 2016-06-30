@@ -63,6 +63,7 @@
     haskell-mode
     irony
     migemo
+    markdown-mode
     redo+
     rainbow-delimiters
     shell-pop
@@ -99,3 +100,4 @@
 (require 'display-init)
 ;;(require 'theme-init)
 (require 'org-mode-init)
+(require 'markdown-mode-init)
