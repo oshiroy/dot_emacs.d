@@ -43,7 +43,6 @@
     auto-complete-c-headers
     ac-python
     anzu
-    aurora-theme
     bind-key
     c-eldoc
     cuda-mode
