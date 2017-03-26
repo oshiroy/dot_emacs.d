@@ -11,6 +11,10 @@
 ;;iswitchbモードON
 (iswitchb-mode 1)
 
+;;count-words-region keybind
+(global-set-key "\C-cc" 'count-words-region)
+
+
 ;;C-f, C-b, C-n, C-p で候補を切り替えることができるように。
 (add-hook 'iswitchb-define-mode-map-hook
 	  (lambda ()
