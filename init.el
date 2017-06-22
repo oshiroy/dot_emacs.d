@@ -11,9 +11,17 @@
 (set-buffer-file-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; osx meta key
+(when (equal system-type 'darwin)
+  (setq ns-option-modifier (quote meta))
+  (setq ns-alternate-modifier (quote super)))
+
+
 ;;solarized theme
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.emacs.d/repos/emacs-color-theme-solarized"))
-(setq solarized-termcolors 256)
+(when (not (equal system-type 'darwin))
+  (setq solarized-termcolors 256)
+  )
 (customize-set-variable 'frame-background-mode 'dark)
 (set-frame-parameter nil 'background-mode 'dark)
 (set-terminal-parameter nil 'background-mode 'dark)
@@ -22,7 +30,8 @@
 
 (linum-mode t)
 
-(add-to-list 'load-path (format "%s/.emacs.d" (getenv "HOME")))
+(add-to-list 'load-path (format "%s/.emacs.d/elpa" (getenv "HOME")))
+
 (require 'cl)
 ;;
 ;;Packages Initialize
@@ -99,4 +108,4 @@
 (require 'display-init)
 ;;(require 'theme-init)
 (require 'org-mode-init)
-(require 'markdown-mode-init)
+;; (require 'markdown-mode-init)

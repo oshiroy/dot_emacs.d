@@ -217,7 +217,8 @@
 	   (require 'rosemacs nil t))
   (invoke-rosemacs)
   (global-set-key "\C-x\C-r" ros-keymap))
-(when (string= "indigo" (getenv "ROS_DISTRO"))
+(when (and (string= "indigo" (getenv "ROS_DISTRO"))
+           (not (equal system-type 'darwin)))
   (add-to-list 'load-path "/opt/ros/indigo/share/emacs/site-lisp")
   (require 'rosemacs-config))
 
