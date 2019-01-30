@@ -55,9 +55,6 @@
     bind-key
     c-eldoc
     cuda-mode
-    ess
-    eldoc-extension
-    elscreen
     expand-region
     fringe-helper
     gtags
@@ -72,7 +69,6 @@
     irony
     migemo
     markdown-mode
-    redo+
     rainbow-delimiters
     shell-pop
     sudden-death
