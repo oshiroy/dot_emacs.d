@@ -36,8 +36,13 @@
 ;;
 ;;Packages Initialize
 (package-initialize)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("ELPA" . "http://tromey.com/elpa/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+
+
 ;;
 ;;auto-inistall
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install/"))
@@ -48,25 +53,26 @@
 (defvar installing-package-list
   '(
     ;;package list
-    auto-complete
     auto-complete-c-headers
     ac-python
     anzu
     bind-key
     c-eldoc
     cuda-mode
+    ;;ctags
+    company
     expand-region
     fringe-helper
     gtags
     gitignore-mode
-    git-gutter
-    git-gutter-fringe
+    ;; git-gutter
+    ;; git-gutter-fringe
     helm
     helm-ag
     helm-gtags
     helm-swoop
     haskell-mode
-    irony
+    ;; irony
     migemo
     markdown-mode
     rainbow-delimiters
@@ -102,6 +108,23 @@
 (require 'helm-init)
 (require 'c-mode-init)
 (require 'display-init)
-;;(require 'theme-init)
-(require 'org-mode-init)
+;; (require 'theme-init)
+;; (require 'org-mode-init)
 ;; (require 'markdown-mode-init)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(anzu-deactivate-region t)
+ '(anzu-mode-lighter "")
+ '(anzu-search-threshold 1000)
+ '(frame-background-mode 'dark)
+ '(package-selected-packages
+   '(go-mode dashboard ## ace-window zlc yaml-mode which-key undohist undo-tree sudden-death sr-speedbar smooth-scroll shell-pop rainbow-delimiters popwin migemo markdown-mode irony helm-swoop helm-gtags helm-ag haskell-mode gtags gitignore-mode git-gutter-fringe flycheck expand-region epc cuda-mode c-eldoc bind-key bash-completion auto-complete-c-headers anzu ac-python)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

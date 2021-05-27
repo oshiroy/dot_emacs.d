@@ -1,20 +1,20 @@
 ;;
-;;Auto Complete
-(when (require 'auto-complete-config nil t)
-  (setq ac-user-dict-dictionary (expand-file-name "~/.emacs.d/ac-user-dict/"))
-  (ac-config-default)
-  (add-to-list 'ac-modes 'text-mode)
-  (add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
-  (add-to-list 'ac-modes 'org-mode)
-  (add-to-list 'ac-modes 'yatex-mode)
-  (add-to-list 'ac-modes 'euslisp-mode)
-  (add-to-list 'ac-modes 'R-mode)
-  (add-to-list 'ac-modes 'yaml-mode)
-  (add-to-list 'ac-modes 'conf-mode)
-  (ac-set-trigger-key "TAB")
-  (setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
-  (setq ac-use-fuzzy t)          ;; 曖昧マッチ
-  (setq ac-disable-faces nil)
+;; Company
+(when (require 'company nil t)
+  (add-hook 'after-init-hook 'global-company-mode)
+  (setq company-transformers '(company-sort-by-backend-importance)) ;; ソート順
+  (setq company-idle-delay 0) ; デフォルトは0.5
+  (setq company-minimum-prefix-length 3) ; デフォルトは4
+  (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+  (setq completion-ignore-case t)
+  (setq company-dabbrev-downcase nil)
+  (define-key company-active-map (kbd "C-n") 'company-select-next) ;; C-n, C-pで補完候補を次/前の候補を選択
+  (define-key company-active-map (kbd "C-p") 'company-select-previous)
+  (define-key company-search-map (kbd "C-n") 'company-select-next)
+  (define-key company-search-map (kbd "C-p") 'company-select-previous)
+  (define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
+  (define-key company-active-map (kbd "C-i") 'company-complete-selection) ;; TABで候補を設定
+  (global-set-key (kbd "C-M-i") 'company-complete)
   )
 
 ;; R & ESS
@@ -61,7 +61,7 @@
 	   (require 'ac-pyrhon nil t))
   (setq eldoc-echo-area-use-multiline-p t)
   (add-hook 'python-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'python-mode-hook 'jedi:ac-setup)  
+  (add-hook 'python-mode-hook 'jedi:ac-setup)
   (setq jedi:tooltip-method 'nil)
   (set-face-attribute 'jedi:highlight-function-argument nil
 		      :foreground "green"))
@@ -154,10 +154,10 @@
 ;;   )
 
 ;;git-gutter-fringe
-(when (and (require 'git-gutter nil t)(require 'git-gutter-fringe nil t))
-  (global-git-gutter-mode t)
+;; (when (and (require 'git-gutter nil t)(require 'git-gutter-fringe nil t))
+;;  (global-git-gutter-mode t)
   ;; (setq git-gutter-fr:side 'right-fringe)
-  )
+;;  )
 
 ;;bash-completion
 (when (require 'bash-completion nil t)
@@ -263,5 +263,13 @@
     (define-key map (kbd "<left>")  'zlc-select-previous)
     (define-key map (kbd "M-<tab>") 'zlc-select-previous)
     (define-key map (kbd "M-TAB") 'zlc-select-previous)))
+
+;;;; for ctags.el
+;; (require 'ctags nil t)
+;; (setq tags-revert-without-query t)
+;; (setq ctags-command "ctags -R --fields=\"+afikKlmnsSzt\" ")
+;; (global-set-key (kbd "<f5>") 'ctags-create-or-update-tags-table)
+;; (global-set-key (kbd "M-.") 'ctags-search)(setq tags-revert-without-query t)
+
 
 (provide 'package-init)

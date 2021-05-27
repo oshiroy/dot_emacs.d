@@ -19,7 +19,7 @@
 (show-paren-mode 1)
 (setq show-paren-style 'mixed) ; `parenthesis' or `expression' or `mixed'
 ;; 括弧の範囲色
-(set-face-background 'show-paren-match-face "#b14770")
+;; (set-face-background 'show-paren-match-face "#b14770")
 (setq show-paren-delay 0)
 ;; backup files go into .~ directory now
 (add-to-list 'backup-directory-alist (cons "." ".~"))
